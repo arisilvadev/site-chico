@@ -1,0 +1,149 @@
+/* Reset simples */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Container centralizado */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Cabeçalho */
+.header {
+  background-color: #4caf50;
+  padding: 25px;
+  margin-bottom: 25px;
+  border-radius: 15px;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+.header h1 {
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+}
+
+/* Navegação */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 22px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #2fe0ff, #4caf50);
+  transition: transform 0.3s, background 0.3s;
+}
+.navbar a:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(90deg, #4caf50, #2fe0ff);
+}
+
+/* Sessão Sobre */
+.sobre {
+  display: flex;
+  flex-direction: column; /* mobile-first */
+  align-items: center;
+  gap: 25px;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.sobre-img {
+  width: 300px;
+  max-width: 90%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+.sobre-img:hover {
+  transform: scale(1.05);
+}
+
+/* Box de destaque para o texto */
+.sobre-box {
+  max-width: 800px;
+  background-color: #ffffff;
+  padding: 30px 35px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* Responsivo */
+@media (min-width: 768px) {
+  .sobre {
+    flex-direction: row; /* lado a lado em telas maiores */
+    text-align: left;
+  }
+  .sobre-img {
+    width: 350px;
+  }
+  .sobre-box {
+    margin-left: 35px;
+  }
+}
+
+/* Footer */
+.footer {
+  margin-top: 50px;
+  padding: 20px;
+  text-align: center;
+  color: #777;
+  font-size: 0.95rem;
+}
+
+/* Animações suaves */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Aplica a animação */
+.sobre-img {
+  animation: fadeInLeft 1s ease forwards;
+}
+
+.sobre-box {
+  animation: fadeInRight 1s ease forwards;
+  animation-delay: 0.3s; /* começa um pouquinho depois da imagem */
+  text-align: center;
+}
