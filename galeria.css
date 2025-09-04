@@ -1,0 +1,231 @@
+/* Reset simples */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Container centralizado */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Cabeçalho */
+.header {
+  background-color: #4caf50;
+  padding: 25px;
+  margin-bottom: 25px;
+  border-radius: 15px;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+.header h1 {
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+}
+
+/* Navegação */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 22px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #2fe0ff, #4caf50);
+  transition: transform 0.3s, background 0.3s;
+}
+.navbar a:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(90deg, #4caf50, #2fe0ff);
+}
+
+/* Sessão Sobre */
+.sobre {
+  display: flex;
+  flex-direction: column; /* mobile-first */
+  align-items: center;
+  gap: 25px;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.sobre-img {
+  width: 300px;
+  max-width: 90%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+.sobre-img:hover {
+  transform: scale(1.05);
+}
+
+/* Box de destaque para o texto */
+.sobre-box {
+  max-width: 800px;
+  background-color: #ffffff;
+  padding: 30px 35px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* Responsivo - sessão Sobre */
+@media (min-width: 768px) {
+  .sobre {
+    flex-direction: row; /* lado a lado em telas maiores */
+    text-align: left;
+  }
+  .sobre-img {
+    width: 350px;
+  }
+  .sobre-box {
+    margin-left: 35px;
+  }
+}
+
+/* ===== GALERIA ===== */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* padrão: 1 por linha (celular) */
+  gap: 20px;
+  padding: 20px 0;
+}
+
+/* Tablet: 3 colunas */
+@media (min-width: 768px) {
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Desktop: 5 colunas */
+@media (min-width: 1024px) {
+  .cards-container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* Estilo dos cards */
+.card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagens da galeria */
+.card img {
+  width: 100%;
+  height: 220px; /* altura fixa equilibrada */
+  object-fit: cover; /* corta sem distorcer */
+  border-radius: 10px;
+  display: block;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+  cursor: pointer;
+}
+
+/* Efeito ao passar o mouse */
+.card img:hover {
+  transform: scale(1.08); /* aumenta 8% */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  filter: brightness(1.1); /* dá um leve brilho */
+}
+
+/* Footer */
+.footer {
+  margin-top: 50px;
+  padding: 20px;
+  text-align: center;
+  color: #777;
+  font-size: 0.95rem;
+}
+
+/* ===== Animações suaves ===== */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.sobre-img {
+  animation: fadeInLeft 1s ease forwards;
+}
+
+.sobre-box {
+  animation: fadeInRight 1s ease forwards;
+  animation-delay: 0.3s;
+}
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Imagem dentro do lightbox */
+.lightbox-img {
+  max-width: 90%; /* nunca passa da largura da tela */
+  max-height: 90%; /* nunca passa da altura da tela */
+  object-fit: contain; /* mantém proporção */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Botão de fechar */
+.lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+}

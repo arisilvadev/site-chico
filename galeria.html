@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galeria do Chico</title>
+    <link rel="stylesheet" href="galeria.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Cabeçalho -->
+      <header class="header">
+        <h1>Galeria de Fotos do Chico 🐾</h1>
+      </header>
+
+      <!-- Galeria -->
+      <section class="galeria">
+        <div class="cards-container">
+          <div class="card">
+            <img src="/images/galeria1.jpg" alt="Chico Pug" />
+            <p>O amor do papai!</p>
+          </div>
+          <div class="card">
+            <img src="/images/galeria2.JPG" alt="Chico Pug" />
+            <p>Adora um brinquedo!</p>
+          </div>
+          <div class="card">
+            <img src="/images/galeria3.jpg" alt="Chico Pug" />
+            <p>Fazendo dentinho!</p>
+          </div>
+          <div class="card">
+            <img src="/images/galeria4.jpg" alt="Chico Pug" />
+            <p>O olhar mais amoroso do mundo! 👀</p>
+          </div>
+          <div class="card">
+            <img src="/images/galeria5.jpg" alt="Chico Pug" />
+            <p>Soneca amada! 📸</p>
+          </div>
+          <div class="card">
+            <img src="/images/galeria6.jpg" alt="Chico Pug" />
+            <p>Cochilando gostoso 😴</p>
+          </div>
+          <div class="card">
+            <img src="/images/galeria7.jpg" alt="Chico Pug" />
+            <p>Barriguinha linda! ❤️</p>
+          </div>
+         
+          </div>
+        </div>
+      </section>
+
+      <!-- Lightbox -->
+      <div class="lightbox" id="lightbox">
+        <span class="close" id="close">&times;</span>
+        <img
+          class="lightbox-img"
+          id="lightbox-img"
+          src=""
+          alt="Foto ampliada"
+        />
+      </div>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p>
+          &copy; 2025 - Galeria do Chico Pug | Todos os direitos reservados.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      // Lightbox JS
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const closeBtn = document.getElementById("close");
+
+      document.querySelectorAll(".card img").forEach((img) => {
+        img.addEventListener("click", () => {
+          lightbox.style.display = "flex";
+          lightboxImg.src = img.src;
+        });
+      });
+
+      closeBtn.addEventListener("click", () => {
+        lightbox.style.display = "none";
+      });
+
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+          lightbox.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
