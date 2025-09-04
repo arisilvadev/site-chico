@@ -1,0 +1,203 @@
+/* Reset simples */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* Cabeçalho */
+.header {
+  background-color: #4caf50;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.header h1 {
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+}
+
+/* Navegação */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #2fe0ff, #4caf50);
+  transition: transform 0.3s, background 0.3s;
+}
+.navbar a:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(90deg, #4caf50, #2fe0ff);
+}
+
+/* Foto de apresentação */
+.apresentacao img {
+  width: 350px;
+  max-width: 90%;
+  height: auto;
+  margin: 20px auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease;
+}
+.apresentacao img:hover {
+  transform: scale(1.05);
+}
+
+/* Galeria e cards */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 20px 0;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.card img:hover {
+  transform: scale(1.1);
+}
+
+.card p {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 12px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  transition: background 0.3s;
+}
+.card:hover p {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+.lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Footer */
+.footer {
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* Cursor de mão e zoom suave para todas as imagens clicáveis */
+.apresentacao img,
+.card img,
+.sobre-img {
+  cursor: pointer; /* muda o cursor para mãozinha */
+  transition: transform 0.4s ease; /* garante efeito de zoom suave */
+}
+
+.apresentacao img:hover,
+.card img:hover,
+.sobre-img:hover {
+  transform: scale(1.05); /* leve aumento ao passar o mouse */
+}
+
+/* Animações suaves */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Aplica a animação */
+.sobre-img {
+  animation: fadeInLeft 1s ease forwards;
+}
+
+.sobre-box {
+  animation: fadeInRight 1s ease forwards;
+  animation-delay: 0.3s; /* começa um pouquinho depois da imagem */
+}
